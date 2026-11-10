@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="6dp">
+
+    <!-- 用户消息：右对齐蓝色气泡 -->
+    <LinearLayout
+        android:id="@+id/gj_user_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:orientation="vertical"
+        android:layout_marginStart="72dp"
+        android:layout_marginEnd="4dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/gj_user_bubble"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gj_user_bubble_bg"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="10dp"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:maxWidth="260dp"
+            tools:text="我想吃川菜，人均100以内" />
+    </LinearLayout>
+
+    <!-- AI 消息：左对齐灰色气泡 + 餐厅卡片容器 -->
+    <LinearLayout
+        android:id="@+id/gj_ai_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:orientation="vertical"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="72dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/gj_ai_bubble"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gj_ai_bubble_bg"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="10dp"
+            android:textColor="@color/gj_text_primary"
+            android:textSize="15sp"
+            android:maxWidth="260dp"
+            tools:text="老板好！推荐蜀香小馆，川菜评分4.8，人均68，辣得过瘾！" />
+
+        <LinearLayout
+            android:id="@+id/gj_card_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="10dp">
+
+    <TextView
+        android:id="@+id/gj_fake_input"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_weight="1"
+        android:background="@drawable/gj_comment_input_bg"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="14dp"
+        android:text="说点什么吧~"
+        android:textColor="@color/gj_text_secondary"
+        android:textSize="13sp" />
+
+    <LinearLayout
+        android:id="@+id/gj_btn_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="💬"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/gj_comment_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="评论"
+            android:textColor="@color/gj_text_secondary"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/gj_btn_helpful"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="4dp">
+
+        <TextView
+            android:id="@+id/gj_helpful_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="👍"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/gj_helpful_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="有帮助"
+            android:textColor="@color/gj_text_secondary"
+            android:textSize="10sp" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+    <application
+        android:name=".GanfanJunshiApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:hardwareAccelerated="true"
+        android:theme="@style/Theme.GanfanJunshi"
+        tools:targetApi="31">
+
+        <!-- 高德地图 Key（值来自 local.properties → AMAP_API_KEY） -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="${AMAP_API_KEY}" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.GanfanJunshi">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.login.LoginActivity" android:exported="false" />
+        <activity android:name=".ui.main.MainActivity" android:exported="false" />
+        <activity
+            android:name=".ui.restaurant.RestaurantDetailActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".ui.match.PublishMatchActivity" android:exported="false" />
+        <activity android:name=".ui.match.MatchDetailActivity" android:exported="false" />
+        <activity android:name=".ui.chat.ChatActivity" android:exported="false" />
+        <activity android:name=".ui.camera.CameraCheckInActivity" android:exported="false" />
+        <activity android:name=".ui.settings.SettingsActivity" android:exported="false" />
+        <activity android:name=".ui.profile.ProfileEditActivity" android:exported="false" />
+        <activity android:name=".ui.profile.TasteProfileActivity" android:exported="false" />
+        <activity android:name=".ui.profile.UserProfileActivity" android:exported="false" />
+        <activity android:name=".ui.search.SearchUserActivity" android:exported="false" />
+        <activity android:name=".ui.ai.AiChatActivity" android:exported="false" />
+        <activity android:name=".ui.ai.AiDialogActivity" android:exported="false" />
+
+        <!-- BroadcastReceiver：饭点闹钟（静态注册） -->
+        <receiver
+            android:name=".component.receiver.MealReminderReceiver"
+            android:exported="false" />
+
+        <!-- BroadcastReceiver：匹配成功（自定义广播） -->
+        <receiver
+            android:name=".component.receiver.MatchSuccessReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.ganfan.junshi.MATCH_SUCCESS" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Service：前台匹配服务 -->
+        <service
+            android:name=".component.service.MatchForegroundService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
+        <!-- Service：位置上报服务 -->
+        <service
+            android:name=".component.service.LocationReportService"
+            android:exported="false"
+            android:foregroundServiceType="location" />
+
+        <!-- Service：AI 回复拉取服务 -->
+        <service
+            android:name=".component.service.AiReplyFetchService"
+            android:exported="false" />
+
+        <!-- ContentProvider：收藏餐厅 -->
+        <provider
+            android:name=".component.provider.FavoriteRestaurantProvider"
+            android:authorities="com.ganfan.junshi.provider.favorite"
+            android:exported="false" />
+
+        <!-- ContentProvider：口味画像 -->
+        <provider
+            android:name=".component.provider.UserTasteProvider"
+            android:authorities="com.ganfan.junshi.provider.taste"
+            android:exported="false" />
+
+    </application>
+
+</manifest>

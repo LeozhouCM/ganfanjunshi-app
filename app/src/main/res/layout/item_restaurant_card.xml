@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="@drawable/gj_card_bg"
+    android:layout_margin="8dp"
+    android:elevation="2dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/gj_card_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@color/gj_text_primary"
+            tools:text="蜀香小馆" />
+
+        <TextView
+            android:id="@+id/gj_card_match"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="👑 最佳匹配"
+            android:textSize="11sp"
+            android:textColor="@color/gj_primary"
+            android:background="@drawable/gj_option_bg"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="2dp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="6dp">
+
+        <TextView
+            android:id="@+id/gj_card_cuisine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="@color/gj_text_secondary"
+            tools:text="川菜" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" · "
+            android:textSize="13sp"
+            android:textColor="@color/gj_text_secondary" />
+
+        <TextView
+            android:id="@+id/gj_card_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="@color/gj_primary"
+            tools:text="¥65/人" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" · "
+            android:textSize="13sp"
+            android:textColor="@color/gj_text_secondary" />
+
+        <TextView
+            android:id="@+id/gj_card_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="@color/gj_accent"
+            tools:text="⭐ 4.8" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/gj_card_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="12sp"
+        android:textColor="@color/gj_text_secondary"
+        android:maxLines="1"
+        android:ellipsize="end"
+        tools:text="朝阳区美食街1号" />
+
+</LinearLayout>

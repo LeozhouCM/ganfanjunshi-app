@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="8dp"
+    android:paddingVertical="4dp">
+
+    <LinearLayout
+        android:id="@+id/gj_row_other"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start|bottom"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/gj_avatar_other"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/gj_avatar_circle_bg"
+            android:contentDescription="@null"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_person_placeholder" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="56dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/gj_bubble_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chat_bubble_other"
+                android:lineSpacingExtra="2dp"
+                android:maxWidth="240dp"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="10dp"
+                android:textColor="@color/gj_text_primary"
+                android:textSize="16sp"
+                tools:text="今晚6点半到店～" />
+
+            <TextView
+                android:id="@+id/gj_time_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/gj_text_secondary"
+                android:textSize="11sp"
+                android:visibility="gone"
+                tools:text="18:00" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/gj_row_mine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end|bottom"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="56dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/gj_bubble_mine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chat_bubble_mine"
+                android:lineSpacingExtra="2dp"
+                android:maxWidth="240dp"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="10dp"
+                android:textColor="@color/gj_text_primary"
+                android:textSize="16sp"
+                tools:text="我可以带一瓶清酒来！" />
+
+            <TextView
+                android:id="@+id/gj_time_mine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/gj_text_secondary"
+                android:textSize="11sp"
+                android:visibility="gone"
+                tools:text="18:05" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/gj_avatar_mine"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/gj_avatar_circle_bg"
+            android:contentDescription="@null"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_person_placeholder" />
+    </LinearLayout>
+</FrameLayout>

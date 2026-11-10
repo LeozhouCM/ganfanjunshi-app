@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gj_background"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/gj_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:title="军师献策"
+            app:navigationIcon="?android:attr/homeAsUpIndicator" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <!-- ========== 题目卡片 ========== -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/gj_question_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/gj_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/gj_question_step"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="第 1/5 问"
+                        android:textSize="12sp"
+                        android:textColor="@color/gj_text_secondary"
+                        android:layout_marginBottom="12dp" />
+
+                    <TextView
+                        android:id="@+id/gj_question_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="今天想吃什么类型？"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gj_text_primary"
+                        android:layout_marginBottom="20dp" />
+
+                    <LinearLayout
+                        android:id="@+id/gj_options_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- ========== 加载区 ========== -->
+            <LinearLayout
+                android:id="@+id/gj_loading_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="32dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ProgressBar
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:indeterminateTint="@color/gj_primary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gj_ai_thinking"
+                    android:textSize="15sp"
+                    android:textColor="@color/gj_text_secondary"
+                    android:layout_marginTop="12dp" />
+
+            </LinearLayout>
+
+            <!-- ========== 结果区 ========== -->
+            <LinearLayout
+                android:id="@+id/gj_results_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <!-- AI 解读 -->
+                <TextView
+                    android:id="@+id/gj_ai_commentary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/gj_text_primary"
+                    android:background="@drawable/gj_card_bg"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp"
+                    tools:text="根据你爱吃辣的偏好，为你精选：" />
+
+                <!-- 精选标题 -->
+                <TextView
+                    android:id="@+id/gj_section_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🎯 军师为你精选"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/gj_primary"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- AI 精选结果 -->
+                <LinearLayout
+                    android:id="@+id/gj_results_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <!-- 分隔线 -->
+                <View
+                    android:id="@+id/gj_fallback_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gj_card_border"
+                    android:layout_marginVertical="16dp"
+                    android:visibility="gone" />
+
+                <!-- 兜底标题 -->
+                <TextView
+                    android:id="@+id/gj_fallback_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="📋 根据你的口味画像推荐以下备选："
+                    android:textSize="14sp"
+                    android:textColor="@color/gj_text_secondary"
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone" />
+
+                <!-- 兜底推荐 -->
+                <LinearLayout
+                    android:id="@+id/gj_fallback_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <!-- 重新来过按钮 -->
+                <Button
+                    android:id="@+id/gj_again_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="🔄 重新选一遍"
+                    android:textColor="@color/gj_primary"
+                    android:backgroundTint="@android:color/transparent"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

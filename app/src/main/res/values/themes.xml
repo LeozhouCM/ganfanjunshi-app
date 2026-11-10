@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.GanfanJunshi" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/gj_primary</item>
+        <item name="colorPrimaryDark">@color/gj_primary_dark</item>
+        <item name="colorAccent">@color/gj_accent</item>
+        <item name="android:windowBackground">@color/gj_background</item>
+        <item name="android:statusBarColor">@color/gj_primary_dark</item>
+    </style>
+
+    <style name="GjBottomNavTextActive" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="GjBottomNavTextInactive" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="GjRestaurantCoverShape" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">12dp</item>
+        <item name="cornerSizeBottomLeft">12dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+</resources>

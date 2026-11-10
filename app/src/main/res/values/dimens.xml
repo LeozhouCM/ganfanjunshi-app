@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="gj_sheet_peek_height">100dp</dimen>
+    <dimen name="gj_sheet_corner_radius">16dp</dimen>
+    <dimen name="gj_bottom_nav_margin_horizontal">12dp</dimen>
+    <dimen name="gj_bottom_nav_margin_bottom">20dp</dimen>
+    <dimen name="gj_bottom_nav_padding_bottom">6dp</dimen>
+    <dimen name="gj_bottom_nav_corner_radius">28dp</dimen>
+    <dimen name="gj_reset_btn_size">40dp</dimen>
+    <dimen name="gj_map_top_bar_margin_top">24dp</dimen>
+    <!-- 标准 actionBar 约 56dp，2.5 倍高度 -->
+    <dimen name="gj_restaurant_toolbar_height">100dp</dimen>
+    <dimen name="gj_match_detail_toolbar_height">100dp</dimen>
+</resources>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gj_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <ImageView
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_mealmate" />
+
+        <!-- Toggle: Login / Register -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/gj_btn_tab_login"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="@string/gj_tab_login" />
+
+            <Button
+                android:id="@+id/gj_btn_tab_register"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:text="@string/gj_tab_register" />
+        </LinearLayout>
+
+        <!-- Login Panel -->
+        <LinearLayout
+            android:id="@+id/gj_login_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/gj_et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/gj_phone_hint"
+                android:inputType="phone"
+                android:maxLength="11" />
+
+            <EditText
+                android:id="@+id/gj_et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="@string/gj_password_hint"
+                android:inputType="textPassword"
+                android:maxLength="20" />
+
+            <CheckBox
+                android:id="@+id/gj_agree_check"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/gj_agree_protocol" />
+
+            <Button
+                android:id="@+id/gj_btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/gj_primary"
+                android:text="@string/gj_btn_login_label" />
+        </LinearLayout>
+
+        <!-- Register Panel -->
+        <LinearLayout
+            android:id="@+id/gj_register_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/gj_et_reg_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/gj_phone_hint"
+                android:inputType="phone"
+                android:maxLength="11" />
+
+            <EditText
+                android:id="@+id/gj_et_reg_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="@string/gj_password_hint"
+                android:inputType="textPassword"
+                android:maxLength="20" />
+
+            <EditText
+                android:id="@+id/gj_et_reg_user_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="@string/gj_user_id_hint"
+                android:inputType="text"
+                android:maxLength="20" />
+
+            <EditText
+                android:id="@+id/gj_et_reg_nickname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="@string/gj_nickname_hint"
+                android:inputType="text"
+                android:maxLength="15" />
+
+            <CheckBox
+                android:id="@+id/gj_reg_agree_check"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/gj_agree_protocol" />
+
+            <Button
+                android:id="@+id/gj_btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/gj_primary"
+                android:text="@string/gj_btn_register_label" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/gj_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</ScrollView>
