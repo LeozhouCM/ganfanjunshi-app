@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: ganfan_junshi
+      POSTGRES_USER: ganfan
+      POSTGRES_PASSWORD: ganfan123
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      SERVER_PORT: "8081"
+      USE_POSTGRES: "true"
+      DB_URL: jdbc:postgresql://postgres:5432/ganfan_junshi
+      DB_USER: ganfan
+      DB_PASS: ganfan123
+      JWT_SECRET: ganfan-junshi-secret-key-2024
+    depends_on:
+      - postgres
+      - redis
+
+volumes:
+  pgdata:
