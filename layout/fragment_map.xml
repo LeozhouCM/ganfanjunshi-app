@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.amap.api.maps.TextureMapView
+        android:id="@+id/gj_map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/gj_map_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="@dimen/gj_map_top_bar_margin_top"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="12dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/gj_shadow_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="12dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/gj_map_search_hint"
+                    android:src="@android:drawable/ic_menu_search"
+                    app:tint="@color/gj_text_secondary" />
+
+                <EditText
+                    android:id="@+id/gj_search_input"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/gj_map_search_food_hint"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/gj_text_primary"
+                    android:textColorHint="@color/gj_text_secondary"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/gj_filter_reset"
+                    android:layout_width="@dimen/gj_reset_btn_size"
+                    android:layout_height="@dimen/gj_reset_btn_size"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/gj_reset_btn_bg"
+                    android:contentDescription="@string/gj_filter_reset"
+                    android:elevation="4dp"
+                    android:padding="9dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_filter_reset" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/gj_filter_nearby"
+                    style="@style/Widget.MaterialComponents.Chip.Action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="6dp"
+                    android:checkable="false"
+                    android:text="@string/gj_filter_nearby"
+                    android:textSize="12sp"
+                    app:chipBackgroundColor="@color/gj_chip_unselected_color"
+                    app:chipCornerRadius="20dp"
+                    app:chipMinTouchTargetSize="0dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/gj_filter_category"
+                    style="@style/Widget.MaterialComponents.Chip.Action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="6dp"
+                    android:checkable="false"
+                    android:text="@string/gj_filter_category"
+                    android:textSize="12sp"
+                    app:chipBackgroundColor="@color/gj_chip_unselected_color"
+                    app:chipCornerRadius="20dp"
+                    app:chipMinTouchTargetSize="0dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/gj_filter_sort"
+                    style="@style/Widget.MaterialComponents.Chip.Action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="6dp"
+                    android:checkable="false"
+                    android:text="@string/gj_filter_sort"
+                    android:textSize="12sp"
+                    app:chipBackgroundColor="@color/gj_chip_unselected_color"
+                    app:chipCornerRadius="20dp"
+                    app:chipMinTouchTargetSize="0dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/gj_results_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gj_sheet_background"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        app:behavior_draggable="false"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="@dimen/gj_sheet_peek_height"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <LinearLayout
+            android:id="@+id/gj_sheet_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+
+            <View
+                android:layout_width="40dp"
+                android:layout_height="5dp"
+                android:background="@drawable/gj_sheet_drag_handle" />
+
+            <TextView
+                android:id="@+id/gj_sheet_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/gj_sheet_swipe_hint"
+                android:textColor="@color/gj_map_text_secondary"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/gj_result_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/gj_map_text_primary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/gj_swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:layout_marginTop="4dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/gj_restaurant_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="true"
+                android:padding="8dp" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/gj_locate_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="120dp"
+        android:contentDescription="@string/gj_map_relocate"
+        app:backgroundTint="@color/gj_surface"
+        app:elevation="6dp"
+        app:fabSize="mini"
+        app:srcCompat="@android:drawable/ic_menu_mylocation"
+        app:tint="@color/gj_primary" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/gj_sheet_expand_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="@string/gj_show_results"
+        android:visibility="gone"
+        app:backgroundTint="@color/gj_primary"
+        app:srcCompat="@android:drawable/arrow_up_float"
+        app:tint="@android:color/white" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gj_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/gj_spice_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gj_text_primary" />
+
+        <SeekBar
+            android:id="@+id/gj_spice_seek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="5" />
+
+        <TextView
+            android:id="@+id/gj_budget_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/gj_text_primary" />
+
+        <SeekBar
+            android:id="@+id/gj_budget_min_seek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="20" />
+
+        <SeekBar
+            android:id="@+id/gj_budget_max_seek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="30" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/gj_cuisines_hint"
+            android:textColor="@color/gj_text_secondary" />
+
+        <EditText
+            android:id="@+id/gj_cuisines_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="川菜,火锅,日料"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/gj_taboos_hint"
+            android:textColor="@color/gj_text_secondary" />
+
+        <EditText
+            android:id="@+id/gj_taboos_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="海鲜过敏,不吃香菜"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/gj_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/gj_primary"
+            android:text="@string/gj_save_taste" />
+
+    </LinearLayout>
+</ScrollView>
